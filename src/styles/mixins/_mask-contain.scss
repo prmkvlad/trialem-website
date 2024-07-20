@@ -1,0 +1,5 @@
+@mixin mask-contain {
+  mask-position: center;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}

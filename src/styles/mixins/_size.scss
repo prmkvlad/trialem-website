@@ -1,0 +1,19 @@
+$maxValue: 1440;
+$minValue: 360;
+
+@function sizeMax($max, $min, $wmax: $maxValue, $wmin: $minValue) {
+  $size: calc(#{$min}px + (#{$max} - #{$min}) * ((100vw - #{$wmin}px) / (#{$wmax} - #{$wmin})));
+  @return $size;
+}
+
+@mixin size($propName, $max, $min, $stopSize: $maxValue) {
+  @if $max == $min {
+    #{$propName}: #{$max}px;
+  } @else {
+    #{$propName}: sizeMax($max, $min);
+
+    @media (min-width: #{$stopSize}px) {
+      #{$propName}: #{$max}px;
+    }
+  }
+}

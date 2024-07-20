@@ -1,0 +1,30 @@
+@use "../mixins"as*;
+
+html,
+body {
+  scroll-behavior: smooth;
+  overscroll-behavior-y: none;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--c-primary);
+  background-color: var(--c-white);
+  min-width: 320px;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.wrapper {
+  position: relative;
+  overflow-x: hidden;
+}
