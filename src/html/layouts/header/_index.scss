@@ -1,0 +1,62 @@
+@use "../../../styles/mixins" as*;
+
+.header {
+	background-color: #212223;
+	color: var(--c-white);
+}
+
+.header-top {
+	border-bottom: 1px solid var(--c-white);
+
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		padding-block: 12px;
+	}
+}
+
+.contact-info {
+	display: flex;
+	gap: 40px;
+
+	&__link {
+		font-weight: 300;
+		transition: color 0.3s ease-in-out 0s;
+
+		&:before {
+			background-color: var(--c-lightgray);
+		}
+
+		@include hover {
+			color: var(--c-pink);
+		}
+	}
+}
+
+.header-bottom {
+	padding-block: 30px;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.menu {
+	display: flex;
+	gap: 32px;
+
+	&__link {
+		font-weight: 300;
+		font-size: 14px;
+		line-height: 1.14;
+		letter-spacing: 0.01em;
+		text-transform: uppercase;
+		transition: color 0.3s ease-in-out 0s;
+
+		@include hover {
+			color: var(--c-pink);
+		}
+	}
+}

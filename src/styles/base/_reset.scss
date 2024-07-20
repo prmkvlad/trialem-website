@@ -1,34 +1,34 @@
 html {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 *,
 ::after,
 ::before {
-  box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 body,
 html {
-  // min-height: 100%;
-  margin: 0;
-  scroll-behavior: smooth;
+	// min-height: 100%;
+	margin: 0;
+	scroll-behavior: smooth;
 }
 
 html {
-  position: relative;
-  tab-size: 4;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  -webkit-tap-highlight-color: transparent;
+	position: relative;
+	tab-size: 4;
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
 }
 
 html:focus-within {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 body {
-  text-rendering: optimizespeed;
+	text-rendering: optimizespeed;
 }
 
 
@@ -36,15 +36,15 @@ details>summary,
 li,
 ol,
 ul {
-  list-style: none;
+	list-style: none;
 }
 
 summary {
-  display: list-item;
+	display: list-item;
 }
 
 details summary::-webkit-details-marker {
-  display: none;
+	display: none;
 }
 
 h1,
@@ -52,97 +52,97 @@ h2,
 h3,
 h4,
 p {
-  font-size: inherit;
-  font-weight: inherit;
-  margin: 0;
+	font-size: inherit;
+	font-weight: inherit;
+	margin: 0;
 }
 
 ul,
 ol,
 dl,
 dd {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 p {
-  margin: 0;
+	margin: 0;
 }
 
 label,
 time {
-  display: block;
+	display: block;
 }
 
 
 figure,
 blockquote {
-  margin: 0;
+	margin: 0;
 }
 
 a:not([class]) {
-  text-decoration-skip-ink: auto;
+	text-decoration-skip-ink: auto;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+	text-decoration: none;
+	color: inherit;
 }
 
 img,
 picture,
 svg,
 video {
-  display: block;
-  height: auto;
-  max-width: 100%;
+	display: block;
+	height: auto;
+	max-width: 100%;
 }
 
 
 b,
 strong {
-  font-weight: 900;
+	font-weight: 900;
 }
 
 address {
-  font-style: normal;
+	font-style: normal;
 }
 
 
 button {
-  margin: 0;
-  padding: 0;
-  border-color: transparent;
-  background-color: transparent;
-  font: inherit;
-  font-size: 100%;
-  color: inherit;
-  line-height: 1;
-  cursor: pointer;
-  outline: 0;
-  text-align: left;
+	margin: 0;
+	padding: 0;
+	border-color: transparent;
+	background-color: transparent;
+	font: inherit;
+	font-size: 100%;
+	color: inherit;
+	line-height: 1;
+	cursor: pointer;
+	outline: 0;
+	text-align: left;
 }
 
 button:disabled {
-  cursor: default;
+	cursor: default;
 }
 
 [type=button],
 [type=reset],
 [type=submit],
 button {
-  -webkit-appearance: none;
+	-webkit-appearance: none;
 }
 
 input,
 textarea,
 button,
 select {
-  -webkit-appearance: none;
-  appearance: none;
-  border: none;
-  border-radius: 0;
-  background-color: transparent;
-  font: inherit;
-  line-height: 1;
+	-webkit-appearance: none;
+	appearance: none;
+	border: none;
+	border-radius: 0;
+	background-color: transparent;
+	font: inherit;
+	line-height: 1;
 }

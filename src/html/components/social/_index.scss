@@ -1,0 +1,20 @@
+@use "../../../styles/mixins" as*;
+
+.social {
+	display: flex;
+	gap: 15px;
+
+	&__link {
+		&:before {
+			background-color: var(--c-lightgray);
+			width: 14px;
+			height: 14px;
+		}
+
+		@include hover {
+			&:before {
+				background-color: gold;
+			}
+		}
+	}
+}
