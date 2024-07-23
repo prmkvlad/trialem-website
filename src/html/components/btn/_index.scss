@@ -1,0 +1,32 @@
+@use '../../../styles/mixins' as*;
+
+.btn {
+	display: block;
+	width: fit-content;
+	padding: 12px 20px;
+	border: 2px solid var(--c-pink);
+	border-radius: 2px;
+	background-color: var(--c-pink);
+	color: var(--c-white);
+	line-height: 1;
+	white-space: nowrap;
+	font-weight: 500;
+	font-size: 14px;
+	text-transform: uppercase;
+	transition: all 0.3s ease-in-out 0s;
+
+	@include hover {
+		background-color: var(--c-white);
+		color: var(--c-pink);
+		border-color: var(--c-white);
+	}
+
+	&--border {
+		border-color: var(--c-gray);
+	}
+
+	&--white {
+		background-color: var(--c-white);
+		color: var(--c-gray);
+	}
+}

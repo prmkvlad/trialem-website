@@ -51,3 +51,25 @@
 		mask-image: var(--icon-youtube);
 	}
 }
+
+.title {
+	font-family: var(--ff-secondary);
+	font-size: 62px;
+	line-height: 1.18;
+	text-transform: uppercase;
+
+	&:before {
+		content: '';
+		display: block;
+		width: 20px;
+		height: 4px;
+		background-color: var(--c-pink);
+		margin-bottom: 25px;
+	}
+}
+
+.text {
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 1.5;
+}
