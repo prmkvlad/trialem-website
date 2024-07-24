@@ -1,0 +1,33 @@
+.feedback-card {
+	max-width: 430px;
+	padding: 45px 40px;
+	margin: 14px;
+	border-radius: 4px;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.08);
+
+	&__body {
+		margin-bottom: 20px;
+	}
+
+	&__footer {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+
+	&__photo {}
+
+	&__details {}
+
+	&__author {
+		font-weight: 500;
+		line-height: 1.19;
+	}
+
+	&__role {
+		font-weight: 300;
+		font-size: 12px;
+		line-height: 1.42;
+		color: var(--c-gray);
+	}
+}

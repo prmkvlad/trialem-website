@@ -1,0 +1,75 @@
+@use '../../../../styles/mixins' as*;
+
+.feedback {
+	padding-block: 80px 60px;
+
+	&__inner {
+		display: grid;
+		grid-template-columns: 300px 860px;
+	}
+
+	.title {
+		margin-bottom: 35px;
+	}
+
+	.slider-actions {
+		display: flex;
+		gap: 12px;
+	}
+
+	.slider-btn {
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		border: 1px solid currentColor;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		outline: 2px solid transparent;
+		outline-offset: 0;
+		transition: all 0.3s ease-in-out 0s;
+
+
+		&:before {
+			content: '';
+			width: 10px;
+			height: 20px;
+			mask-image: var(--icon-prev);
+			@include mask-contain;
+			background-color: currentColor;
+		}
+
+		&--next {
+			&:before {
+				transform: scaleX(-1);
+			}
+		}
+
+		&[disabled] {
+			color: var(--c-gray);
+			pointer-events: none;
+		}
+
+		&:focus {
+			outline-color: var(--c-pink);
+			outline-offset: 3px;
+		}
+
+		@include hover {
+			color: var(--c-pink);
+		}
+	}
+
+	.slider {
+		padding-block: 30px;
+	}
+
+	.swiper-wrapper {
+		box-sizing: border-box;
+	}
+
+	.swiper-slide {
+		box-sizing: border-box;
+		width: fit-content;
+	}
+}
