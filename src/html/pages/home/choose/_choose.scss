@@ -1,0 +1,25 @@
+.choose-bike {
+	padding-block: 100px;
+
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		gap: 20px;
+	}
+
+	.title {
+		margin-bottom: 50px;
+	}
+}
+
+.container {}
+
+.content {}
+
+.btn {}
+
+.bikes-list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 25px;
+}
