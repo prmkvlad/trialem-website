@@ -1,0 +1,80 @@
+@use '../../../../styles/mixins' as*;
+
+.why {
+	padding-block: 80px 166px;
+	background-image: url('/src/assets/images/home/why-bike.webp'), url('/src/assets/images/home/why-bg.webp');
+	background-repeat: no-repeat;
+	background-size: 800px 640px, 94% 91%;
+	background-position: left 120px top 120px, right top;
+
+	&__inner {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.content {
+		max-width: 520px;
+	}
+
+	.title {
+		margin-bottom: 50px;
+	}
+}
+
+
+.advantages-list {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 30px 40px;
+}
+
+.advantage-card {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	&:before {
+		content: '';
+		display: block;
+		width: 32px;
+		height: 32px;
+		@include mask-contain;
+		background-color: #fff;
+	}
+
+	&__title {
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 1.17;
+	}
+
+	&__text {}
+
+	&.icon-percent {
+		&:before {
+			content: '';
+			mask-image: var(--icon-percent);
+		}
+	}
+
+	&.icon-bicycle {
+		&:before {
+			content: '';
+			mask-image: var(--icon-bicycle);
+		}
+	}
+
+	&.icon-commenting {
+		&:before {
+			content: '';
+			mask-image: var(--icon-commenting);
+		}
+	}
+
+	&.icon-location {
+		&:before {
+			content: '';
+			mask-image: var(--icon-location);
+		}
+	}
+}
