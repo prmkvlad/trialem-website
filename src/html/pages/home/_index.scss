@@ -13,5 +13,9 @@
 		left: 0;
 		right: 0;
 		background-color: transparent;
+
+		&.scrolled {
+			background-color: var(--c-dark);
+		}
 	}
 }
