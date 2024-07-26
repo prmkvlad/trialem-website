@@ -1,0 +1,65 @@
+@use '../../../../styles/mixins' as*;
+
+.movement {
+
+	&__inner {
+		padding-block: 60px 100px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 100px;
+	}
+
+	.video {
+		position: relative;
+		height: 440px;
+		width: 100%;
+		aspect-ratio: 600 / 440;
+		background-image: url('/src/assets/images/about/play-video.webp');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		cursor: pointer;
+		transition: box-shadow 0.3s ease-in-out 0s;
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 80px;
+			height: 80px;
+			inset: 0;
+			margin: auto;
+			@include mask-contain;
+			mask-image: var(--icon-play);
+			background-color: var(--c-white);
+			transition: background-color 0.3s ease-in-out 0s;
+		}
+
+		@include hover {
+			box-shadow: inset 0 0 1000px 0 rgba(0, 0, 0, 0.5);
+
+			&:after {
+				content: '';
+				background-color: var(--c-pink);
+			}
+		}
+	}
+
+	.content {
+		max-width: 470px;
+		width: 100%;
+	}
+
+	.title {
+		margin-bottom: 50px;
+	}
+
+	.text {
+		margin-bottom: 25px;
+	}
+
+	.buttons {
+		display: flex;
+		gap: 10px;
+	}
+}
