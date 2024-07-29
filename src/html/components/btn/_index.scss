@@ -13,7 +13,7 @@
 	font-weight: 500;
 	font-size: 14px;
 	text-transform: uppercase;
-	transition: all 0.3s ease-in-out 0s;
+	transition: background-color 0.3s ease-in-out 0s, color 0.3s ease-in-out 0s, border-color 0.3s ease-in-out 0s;
 
 	@include hover {
 		background-color: var(--c-white);

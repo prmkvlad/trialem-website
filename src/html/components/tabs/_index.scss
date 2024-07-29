@@ -8,14 +8,16 @@
 	&-content {
 		position: absolute;
 		z-index: -100;
-		top: 0;
-		left: 0;
+		top: 30px;
+		left: 30px;
 		opacity: 0;
 		visibility: hidden;
 
 		&.active {
 			position: relative;
 			z-index: 10;
+			top: 0;
+			left: 0;
 			opacity: 1;
 			visibility: visible;
 		}
