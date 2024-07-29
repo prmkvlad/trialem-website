@@ -1,0 +1,11 @@
+<extends src="html/layouts/_html.html" locals='{
+	"pageTitle": "Bicycles",
+	"pageClass": "bicycles-page"
+}'>
+	<block name="main">
+		<main>
+			<include src="html/components/breadcrumbs/_index.html" locals='{"pageName": "bicycles"}'></include>
+			<include src="html/pages/bicycles/bikes/_bikes.html"></include>
+		</main>
+	</block>
+</extends>

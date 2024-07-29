@@ -1,0 +1,87 @@
+@use '../../../../styles/mixins' as*;
+
+.bikes {
+	padding-block: 70px 110px;
+
+	&__inner {
+		max-width: 1260px;
+	}
+
+	.tabs-nav {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 12px;
+		margin-bottom: 12px;
+		margin-left: 30px;
+
+		&__link {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			padding: 5px 10px;
+			border-radius: 4px;
+			border: 1px solid var(--c-lightgray);
+			outline: 2px solid transparent;
+			outline-offset: 6px;
+			background-color: var(--c-white);
+			font-weight: 300;
+			font-size: 14px;
+			line-height: 1.14;
+			transition: all 0.3s ease-in-out 0s;
+
+
+			&:before {
+				content: '';
+				width: 16px;
+				height: 16px;
+				mask-image: var(--icon-arrow-right);
+				background-color: var(--c-dark);
+				transition: background-color 0.3s ease 0s;
+
+				@include mask-contain;
+			}
+
+			&:focus {
+				outline-color: rgba(255, 40, 91, 0.5);
+				outline-offset: 2px;
+			}
+
+			&.active {
+				border-color: var(--c-pink);
+				background-color: rgba(255, 40, 91, 0.1);
+
+				&:before {
+					background-color: #6EC1E4;
+				}
+			}
+
+			@include hover {
+				background-color: rgba(255, 40, 91, 0.1);
+			}
+		}
+	}
+
+	.bikes-list {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 30px 25px;
+		max-width: 1170px;
+	}
+
+	.tabs {
+
+		&__wrapper {
+			padding: 30px;
+		}
+
+		&-content {
+			padding-top: 10px;
+			transition: padding-top 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s;
+
+			&.active {
+				padding-top: 0px;
+			}
+		}
+	}
+}

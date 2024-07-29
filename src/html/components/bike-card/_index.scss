@@ -1,5 +1,6 @@
 .bike-card {
-	width: 280px;
+	max-width: 280px;
+	width: 100%;
 	padding: 16px;
 	box-shadow: 0 0 32px 8px rgba(0, 0, 0, 0.08);
 
@@ -42,9 +43,4 @@
 	&__cost {
 		font-weight: 700;
 	}
-}
-
-.btn {
-
-	&--white {}
 }
