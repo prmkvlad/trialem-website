@@ -1,0 +1,15 @@
+<extends src="html/layouts/_html.html" locals='{
+	"pageTitle": "Services",
+	"pageClass": "services-page"
+}'>
+	<block name="main">
+		<main>
+			<include src="html/components/breadcrumbs/_index.html" locals='{"pageName": "Services"}'></include>
+			<include src="html/pages/services/advantages/_advantages.html"></include>
+			<include src="html/sections/rental/_rental.html"></include>
+			<!--  -->
+			<include src="html/sections/why/_why.html"></include>
+			<include src="html/sections/feedback/_feedback.html"></include>
+		</main>
+	</block>
+</extends>

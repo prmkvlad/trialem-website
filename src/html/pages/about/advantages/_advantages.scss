@@ -8,8 +8,8 @@
 		justify-content: flex-start;
 		background-image: url('/src/assets/images/about/about-advantages.webp');
 		background-repeat: no-repeat;
-		background-size: 600px;
-		background-position: right center;
+		background-size: 600px 540px;
+		background-position: right 15px center;
 	}
 
 	&__list {
@@ -37,6 +37,7 @@
 
 	.content {
 		max-width: 530px;
+		min-height: 540px;
 	}
 
 	.title {
