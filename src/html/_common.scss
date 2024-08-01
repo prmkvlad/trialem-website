@@ -1,3 +1,5 @@
+@use '../styles/mixins' as*;
+
 .icon {
 	display: flex;
 	align-items: center;
@@ -55,6 +57,14 @@
 	font-size: 62px;
 	line-height: 1.18;
 	text-transform: uppercase;
+
+	@include rmax($md) {
+		font-size: 58px;
+	}
+
+	@include rmax($xs) {
+		font-size: 52px;
+	}
 
 	&:before {
 		content: '';

@@ -7,16 +7,41 @@
 	&__inner {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		height: 806px;
+		padding-block: 210px 185px;
+
+		@include rmax($md) {
+			padding-block: 190px 150px;
+		}
+
+		@include rmax($sm) {
+			padding-block: 170px 100px;
+		}
+
+		@include rmax($xs) {
+			padding-block: 140px 60px;
+			align-items: center;
+			text-align: center;
+		}
 	}
 
 	.title {
 		margin-bottom: 50px;
+
+		@include rmax($xs) {
+			margin-bottom: 36px;
+
+			&:before {
+				margin-inline: auto;
+			}
+		}
 	}
 
 	.text {
 		margin-bottom: 25px;
 		max-width: 310px;
+
+		@include rmax($xs) {
+			margin-bottom: 18px;
+		}
 	}
 }
