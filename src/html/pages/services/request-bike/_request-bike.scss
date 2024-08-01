@@ -1,0 +1,26 @@
+.request-bike {
+	padding-block: 100px 120px;
+	background-image: url('/src/assets/images/services/black-bicycle.webp');
+	background-repeat: no-repeat;
+	background-size: auto 660px;
+	background-position: right center;
+
+	.form-wrapper {
+		display: inline-block;
+		padding: 50px 40px;
+		background-color: var(--c-lightblue);
+	}
+
+	&__form {
+		color: var(--c-dark);
+
+		.request-form__input {
+			color: var(--c-dark);
+			border-color: var(--c-cadetblue);
+
+			&::placeholder {
+				color: var(--c-cadetblue);
+			}
+		}
+	}
+}
