@@ -1,0 +1,12 @@
+<extends src="html/layouts/_html.html" locals='{
+	"pageTitle": "Contacts",
+	"pageClass": "contacts-page"
+}'>
+	<block name="main">
+		<main>
+			<include src="html/components/breadcrumbs/_index.html" locals='{"pageName": "Services"}'></include>
+			<include src="html/pages/contacts/address/_address.html"></include>
+			<include src="html/pages/contacts/map/_map.html"></include>
+		</main>
+	</block>
+</extends>
