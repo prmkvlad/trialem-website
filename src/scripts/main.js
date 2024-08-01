@@ -43,3 +43,15 @@ const showTabs = (tabsNav, tabsContent) => {
 const tabsNav = document.querySelectorAll('.bikes .tabs-nav__link');
 const tabsContent = document.querySelectorAll('.bikes .tabs-content');
 showTabs(tabsNav, tabsContent);
+
+/* burger */
+
+const navBtn = document.querySelector('.mobile-nav-btn');
+const nav = document.querySelector('.mobile-nav');
+const menuIcon = document.querySelector('.nav-icon');
+
+navBtn.onclick = function () {
+	nav.classList.toggle('mobile-nav--open');
+	menuIcon.classList.toggle('nav-icon--active');
+	document.body.classList.toggle('no-scroll');
+};

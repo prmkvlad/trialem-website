@@ -11,6 +11,10 @@
 	border: 0 !important
 }
 
+.no-scroll {
+	overflow-y: hidden;
+}
+
 .color-accent {
 	color: var(--c-pink);
 }

@@ -1,0 +1,145 @@
+@use '../../../styles/mixins' as*;
+
+.mobile-nav {
+	position: fixed;
+	// top: 0;
+	top: -100%;
+	width: 100%;
+	height: 100%;
+	z-index: 99;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	// background: linear-gradient(209deg, #4287b3 -17.38%, #133f6b 78.4%), #276195;
+	background: var(--c-dark);
+	transition: all 0.2s ease-in;
+}
+
+.mobile-nav--open {
+	top: 0;
+}
+
+.mobile-nav a {
+	color: #fff;
+	display: block;
+	transition: color 0.3s ease-in-out 0s;
+
+	@include hover {
+		color: var(--c-pink);
+	}
+}
+
+.mobile-nav__list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 20px;
+	font-size: 28px;
+	width: 100%;
+
+	& .active {
+		opacity: 0.5;
+	}
+}
+
+.mobile-nav__item {
+	width: 100%;
+	text-align: center;
+}
+
+/* Nav Icon */
+.mobile-nav-btn {
+	--time: 0.1s;
+
+	--width: 25px;
+	--height: 22px;
+
+	--line-height: 2px;
+	--spacing: 7px;
+
+	--color: var(--c-white);
+	--radius: 0px;
+
+	/* Fixed height and width */
+	/* height: var(--height); */
+	/* width: var(--width); */
+
+	/* Dynamic height and width */
+	height: calc(var(--line-height) * 3 + var(--spacing) * 2);
+	width: var(--width);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.nav-icon {
+	position: relative;
+	width: var(--width);
+	height: var(--line-height);
+	background-color: var(--color);
+	border-radius: var(--radius);
+}
+
+.nav-icon::before,
+.nav-icon::after {
+	content: '';
+	display: block;
+
+	position: absolute;
+	left: 0;
+
+	width: var(--width);
+	height: var(--line-height);
+
+	border-radius: var(--radius);
+	background-color: var(--color);
+	transition: transform var(--time) ease-in,
+		top var(--time) linear var(--time);
+}
+
+.nav-icon::before {
+	/* top: calc(var(--line-height) * -2); */
+	top: calc(-1 * (var(--line-height) + var(--spacing)));
+}
+
+.nav-icon::after {
+	/* top: calc(var(--line-height) * 2); */
+	top: calc(var(--line-height) + var(--spacing));
+}
+
+.nav-icon.nav-icon--active {
+	background-color: transparent;
+}
+
+.nav-icon.nav-icon--active::before,
+.nav-icon.nav-icon--active::after {
+	top: 0;
+	transition: top var(--time) linear,
+		transform var(--time) ease-in var(--time);
+}
+
+.nav-icon.nav-icon--active::before {
+	transform: rotate(45deg);
+}
+
+.nav-icon.nav-icon--active::after {
+	transform: rotate(-45deg);
+}
+
+/* Layout */
+
+.mobile-nav-btn {
+	z-index: 999;
+	display: none;
+}
+
+@media (max-width: 600px) {
+	.mobile-nav-btn {
+		display: block;
+	}
+}

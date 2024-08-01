@@ -1,6 +1,5 @@
 .icon {
 	display: flex;
-	gap: 10px;
 	align-items: center;
 
 	&:before {
@@ -12,7 +11,6 @@
 		mask-position: center;
 		background-color: currentColor;
 		transition: background-color 0.3s ease-in-out 0s;
-
 	}
 }
 

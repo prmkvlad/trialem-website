@@ -5,26 +5,25 @@ $sm: 600;
 $xs: 480;
 
 @mixin rmin($width) {
-  @media (min-width: #{$width}px) {
-    @content;
-  }
+	@media (min-width: #{$width}px) {
+		@content;
+	}
 }
 
 @mixin rhmin($width) {
-  @media (min-height: #{$width}px) {
-    @content;
-  }
+	@media (min-height: #{$width}px) {
+		@content;
+	}
 }
 
 @mixin rhmax($width) {
-  @media (max-height: #{$width}px) {
-    @content;
-  }
+	@media (max-height: #{$width}px) {
+		@content;
+	}
 }
 
 @mixin rmax($width) {
-  @media (max-width: #{$width}px) {
-    @content;
-  }
+	@media (max-width: #{$width}px) {
+		@content;
+	}
 }
-

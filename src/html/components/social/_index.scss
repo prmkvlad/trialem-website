@@ -2,7 +2,11 @@
 
 .social {
 	display: flex;
-	gap: 15px;
+	gap: 25px;
+
+	@include rmax($xs) {
+		gap: 15px;
+	}
 
 	&__link {
 		&:before {
