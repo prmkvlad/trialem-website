@@ -1,13 +1,14 @@
 @use '../../../styles/mixins' as*;
 
 .why {
-	padding-block: 80px 166px;
+	padding-block: 80px;
 	background-image: url('/src/assets/images/home/why-bike.webp'), url('/src/assets/images/home/why-bg.webp');
 	background-repeat: no-repeat;
 	background-size: 50%, cover;
 	background-position: left 15px top 120px, center;
 
 	@include rmin(1400) {
+		padding-block: 80px 166px;
 		background-size: clamp(37.5rem, 3.846rem + 38.462vw, 50rem) clamp(35.625rem, 23.846rem + 13.462vw, 40rem), 94% 91%;
 		background-position: left 120px top 120px, right top;
 	}
