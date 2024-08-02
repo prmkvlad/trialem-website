@@ -1,8 +1,19 @@
+@use '../../../../styles/mixins' as*;
+
 .stats {
 
 	&__inner {
 		position: relative;
-		padding: 70px 45px 80px;
+		padding-block: 80px;
+		padding-inline: 45px;
+
+		@include rmax($lg) {
+			padding-inline: 0;
+		}
+
+		@include rmax($xs) {
+			padding-block: 60px;
+		}
 
 		&:before {
 			content: '';
@@ -20,5 +31,14 @@
 	&__list {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
+
+		@include rmax($lg) {
+			grid-template-columns: repeat(2, 1fr);
+			row-gap: 25px;
+		}
+
+		@include rmax($sm) {
+			grid-template-columns: 1fr;
+		}
 	}
 }
