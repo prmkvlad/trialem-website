@@ -54,17 +54,9 @@
 
 .title {
 	font-family: var(--ff-secondary);
-	font-size: 62px;
+	font-size: clamp(3.25rem, 3.015rem + 1.176vw, 3.875rem); // 62px to 52px
 	line-height: 1.18;
 	text-transform: uppercase;
-
-	@include rmax($md) {
-		font-size: 58px;
-	}
-
-	@include rmax($xs) {
-		font-size: 52px;
-	}
 
 	&:before {
 		content: '';
@@ -77,11 +69,7 @@
 }
 
 .title:not(:last-child) {
-	margin-bottom: 50px;
-
-	@include rmax($xs) {
-		margin-bottom: 36px;
-	}
+	margin-bottom: clamp(2.25rem, 1.932rem + 1.591vw, 3.125rem); // 50px to 36px
 }
 
 .text {
@@ -91,9 +79,5 @@
 }
 
 .text:not(:last-child) {
-	margin-bottom: 25px;
-
-	@include rmax($xs) {
-		margin-bottom: 18px;
-	}
+	margin-bottom: clamp(1.125rem, 0.966rem + 0.795vw, 1.563rem); // 25px to 18px
 }

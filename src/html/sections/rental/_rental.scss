@@ -2,38 +2,81 @@
 
 .rental {
 	padding-block: 80px 130px;
-	background-image: linear-gradient(90deg, var(--c-blue) 94%, rgba(255, 255, 255, 1) 94%);
+	background-color: var(--c-blue);
+
+	@include rmin($xl) {
+		background-image: linear-gradient(90deg, var(--c-blue) 94%, rgba(255, 255, 255, 1) 94%);
+		background-color: transparent;
+	}
+
+	@include rmax($md) {
+		padding-block: 140px;
+	}
+
+	@include rmax($sm) {
+		padding-block: 100px;
+	}
+
+	@include rmax($xs) {
+		padding-block: 60px;
+	}
 
 	&__inner {
 		display: flex;
 		align-items: center;
-		gap: 140px;
+		gap: clamp(3.125rem, -28.223rem + 50.562vw, 8.75rem);
+
+		@include rmax($md) {
+			flex-direction: column;
+		}
 	}
 
 	.content {
 		max-width: 370px;
+
+		@include rmax($md) {
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 
 	.title {
-		margin-bottom: 50px;
+		@include rmax($md) {
+			&:before {
+				margin-inline: auto;
+			}
+		}
 	}
 
-	.text {
-		margin-bottom: 25px;
-	}
+	.text {}
 }
 
 
 .rental-price {
 	display: grid;
 	grid-template-columns: repeat(2, 250px);
-	gap: 60px;
+	gap: clamp(2.5rem, -1.786rem + 8.929vw, 3.75rem);
+
+	@include rmax($lg) {
+		grid-template-columns: repeat(2, 200px);
+	}
+
+	@include rmax($xs) {
+		grid-template-columns: repeat(1, 250px);
+	}
 }
 
 .price-card {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
+
+	@include rmax($md) {
+		align-items: center;
+		text-align: center;
+	}
 
 	&:before {
 		content: '';

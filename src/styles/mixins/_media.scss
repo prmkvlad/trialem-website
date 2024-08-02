@@ -1,8 +1,13 @@
 $xl: 1200;
+$xl-above: 1201;
 $lg: 992;
+$lg-above: 993;
 $md: 768;
+$md-above: 769;
 $sm: 600;
+$sm-above: 601;
 $xs: 480;
+$xs-above: 481;
 
 @mixin rmin($width) {
 	@media (min-width: #{$width}px) {
