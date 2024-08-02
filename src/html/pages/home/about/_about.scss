@@ -1,29 +1,72 @@
+@use '../../../../styles/mixins' as*;
+
 .about {
 
 	&__inner {
+		position: relative;
 		padding-block: 140px 175px;
 		display: flex;
 		justify-content: flex-end;
-		background-image: url('/src/assets/images/home/about-bg.webp');
-		background-repeat: no-repeat;
-		background-size: 600px;
-		background-position: left 15px center;
+
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			background-image: url('/src/assets/images/home/about-bg.webp');
+			background-repeat: no-repeat;
+			background-size: clamp(25rem, 1.119rem + 49.751vw, 37.5rem) clamp(28.125rem, 18.573rem + 19.9vw, 33.125rem);
+			background-position: left 15px center;
+		}
+
+		@include rmax($xl) {
+			padding-block: 140px;
+		}
+
+		@include rmax($md) {
+			justify-content: center;
+			text-align: center;
+
+			&:before {
+				background-position: center;
+				background-size: cover;
+				opacity: 0.6;
+			}
+		}
+
+		@include rmax($sm) {
+			padding-block: 100px;
+		}
+
+		@include rmax($xs) {
+			padding-block: 60px;
+		}
 	}
 
 	.content {
-		max-width: 470px;
+		max-width: clamp(18.75rem, -1.549rem + 42.289vw, 29.375rem);
 	}
 
 	.title {
-		margin-bottom: 50px;
+		@include rmax($md) {
+			&:before {
+				margin-inline: auto;
+			}
+		}
 	}
 
-	.text {
-		margin-bottom: 25px;
-	}
+	.text {}
 
 	.buttons {
 		display: flex;
 		gap: 10px;
+
+		@include rmax($md) {
+			justify-content: center;
+		}
 	}
 }

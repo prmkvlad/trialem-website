@@ -76,8 +76,24 @@
 	}
 }
 
+.title:not(:last-child) {
+	margin-bottom: 50px;
+
+	@include rmax($xs) {
+		margin-bottom: 36px;
+	}
+}
+
 .text {
 	font-weight: 300;
 	font-size: 14px;
 	line-height: 1.5;
+}
+
+.text:not(:last-child) {
+	margin-bottom: 25px;
+
+	@include rmax($xs) {
+		margin-bottom: 18px;
+	}
 }
