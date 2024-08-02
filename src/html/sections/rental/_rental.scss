@@ -10,11 +10,11 @@
 	}
 
 	@include rmax($md) {
-		padding-block: 140px;
+		padding-block: 100px;
 	}
 
 	@include rmax($sm) {
-		padding-block: 100px;
+		padding-block: 80px;
 	}
 
 	@include rmax($xs) {

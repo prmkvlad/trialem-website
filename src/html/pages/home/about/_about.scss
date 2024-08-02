@@ -30,6 +30,7 @@
 		@include rmax($md) {
 			justify-content: center;
 			text-align: center;
+			padding-block: 100px;
 
 			&:before {
 				background-position: center;
@@ -39,7 +40,7 @@
 		}
 
 		@include rmax($sm) {
-			padding-block: 100px;
+			padding-block: 80px;
 		}
 
 		@include rmax($xs) {

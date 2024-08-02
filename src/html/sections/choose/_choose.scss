@@ -1,19 +1,70 @@
+@use '../../../styles/mixins' as*;
+
 .choose-bike {
 	padding-block: 100px;
+
+	@include rmax($md) {
+		padding-block: 100px;
+	}
+
+	@include rmax($sm) {
+		padding-block: 80px;
+	}
+
+	@include rmax($xs) {
+		padding-block: 60px;
+	}
 
 	&__inner {
 		display: flex;
 		justify-content: space-between;
+		flex-wrap: wrap;
 		gap: 20px;
+
+		@include rmax($xl) {
+			flex-direction: column;
+			gap: 0;
+		}
+	}
+
+	.content {
+		@include rmax($xl) {
+			margin-inline: auto;
+			text-align: center;
+			display: contents;
+		}
 	}
 
 	.title {
-		margin-bottom: 50px;
+		@include rmax($xl) {
+			&:before {
+				margin-inline: auto;
+			}
+
+			br {
+				display: none;
+			}
+		}
+	}
+
+	&__link {
+		@include rmax($xl) {
+			order: 1;
+			align-self: center;
+		}
 	}
 }
 
 .bikes-list {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 25px;
+	display: flex;
+	justify-content: center;
+	gap: clamp(0.938rem, -0.174rem + 2.315vw, 1.563rem); //25px to 15px
+
+	@include rmax($xl) {
+		margin-bottom: 30px;
+	}
+
+	@include rmax($md) {
+		flex-wrap: wrap;
+	}
 }
