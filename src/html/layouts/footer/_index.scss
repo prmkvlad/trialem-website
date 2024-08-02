@@ -8,13 +8,21 @@
 	font-size: 14px;
 	line-height: 1.43;
 	color: var(--c-white);
-	padding-top: 50px;
+	padding-top: 60px;
 	padding-bottom: 20px;
 
 	&__grid {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: 24px;
+		gap: 25px;
+
+		@include rmax($lg) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include rmax($sm) {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	&__group {}
@@ -23,21 +31,22 @@
 .footer-details {
 
 	&__text {
-		margin-bottom: 20px;
+		margin-bottom: clamp(1rem, 0.909rem + 0.455vw, 1.25rem); //20px to 16px
 	}
 
 	.logo {
 		display: block;
-		margin-bottom: 34px;
+		margin-bottom: clamp(1.75rem, 1.614rem + 0.682vw, 2.125rem); //34px to 28px
 	}
 }
 
 .insta-blog {
 
 	&__list {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 8px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		max-width: 210px;
 	}
 
 	&__img {}
@@ -48,7 +57,7 @@
 	font-size: 18px;
 	line-height: 1.78;
 	text-transform: uppercase;
-	margin-bottom: 24px;
+	margin-bottom: clamp(1rem, 0.818rem + 0.909vw, 1.5rem); //24px to 16px
 }
 
 .contacts {
@@ -56,7 +65,7 @@
 	&__list {
 		li {
 			&:not(:last-child) {
-				margin-bottom: 14px;
+				margin-bottom: clamp(0.75rem, 0.705rem + 0.227vw, 0.875rem); //14px to 12px
 			}
 		}
 	}
@@ -72,10 +81,11 @@
 .subscribe {}
 
 .subscribe-form {
-	margin-bottom: 20px;
+	margin-bottom: clamp(1rem, 0.909rem + 0.455vw, 1.25rem); //20px to 16px
 
 	&__group {
 		display: flex;
+		max-width: 275px;
 		align-items: center;
 		border: 1px solid rgba(#fff, 0.6);
 		border-radius: 6px;
@@ -113,7 +123,7 @@
 
 
 .copy {
-	padding-top: 40px;
+	padding-top: clamp(1.875rem, 1.648rem + 1.136vw, 2.5rem); //40px to 30px
 	font-size: 12px;
 	color: var(--c-lightgray);
 }
