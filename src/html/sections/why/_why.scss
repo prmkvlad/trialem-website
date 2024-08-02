@@ -4,20 +4,60 @@
 	padding-block: 80px 166px;
 	background-image: url('/src/assets/images/home/why-bike.webp'), url('/src/assets/images/home/why-bg.webp');
 	background-repeat: no-repeat;
-	background-size: 800px 640px, 94% 91%;
-	background-position: left 120px top 120px, right top;
+	background-size: 50%, cover;
+	background-position: left 15px top 120px, center;
+
+	@include rmin(1400) {
+		background-size: 800px 640px, 94% 91%;
+		background-position: left 120px top 120px, right top;
+	}
+
+	@include rmax($xl) {
+		background-size: 30%, cover;
+		background-position: right 60px top 60px, center;
+	}
+
+	@include rmax($md) {
+		padding-block: 100px;
+
+		background-image: url('/src/assets/images/home/why-bg.webp');
+		background-size: cover;
+		background-position: center;
+	}
+
+	@include rmax($sm) {
+		padding-block: 80px;
+	}
+
+	@include rmax($xs) {
+		padding-block: 60px;
+	}
 
 	&__inner {
 		display: flex;
 		justify-content: flex-end;
+
+		@include rmax($xl) {
+			justify-content: center;
+		}
 	}
 
 	.content {
 		max-width: 520px;
+
+		@include rmax($xl) {
+			max-width: 100%;
+		}
+
+		@include rmax($sm) {
+			text-align: center;
+		}
 	}
 
 	.title {
-		margin-bottom: 50px;
+		&:before {
+			margin-inline: auto;
+		}
 	}
 }
 
@@ -26,12 +66,21 @@
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 30px 40px;
+
+	@include rmax($sm) {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
 }
 
 .advantage-card {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
+
+	@include rmax($sm) {
+		align-items: center;
+	}
 
 	&:before {
 		content: '';
