@@ -1,18 +1,37 @@
 @use '../../../../styles/mixins' as*;
 
 .movement {
+	padding-block: 60px 100px;
+
+	@include rmax($sm) {
+		padding-block: 60px 80px;
+	}
+
+	@include rmax($xs) {
+		padding-block: 40px 60px;
+	}
 
 	&__inner {
-		padding-block: 60px 100px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		gap: 100px;
+
+		@include rmax($xl) {
+			gap: 16px;
+		}
+
+		@include rmax($md) {
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 35px;
+		}
 	}
 
 	.video {
 		position: relative;
-		height: 440px;
+		height: auto;
+		max-width: 600px;
 		width: 100%;
 		aspect-ratio: 600 / 440;
 		background-image: url('/src/assets/images/about/play-video.webp');
@@ -46,17 +65,26 @@
 	}
 
 	.content {
-		max-width: 470px;
+		max-width: clamp(18.75rem, -0.139rem + 39.352vw, 29.375rem); //470px to 300px
 		width: 100%;
+
+		@include rmax($md) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+		}
 	}
 
 	.title {
-		margin-bottom: 50px;
+		@include rmax($md) {
+			&:before {
+				margin-inline: auto;
+			}
+		}
 	}
 
-	.text {
-		margin-bottom: 25px;
-	}
+	.text {}
 
 	.buttons {
 		display: flex;
