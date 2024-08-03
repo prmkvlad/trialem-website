@@ -3,19 +3,62 @@
 .advantages {
 
 	&__inner {
+		position: relative;
 		padding-block: 105px;
 		display: flex;
 		justify-content: flex-start;
-		background-image: url('/src/assets/images/about/about-advantages.webp');
-		background-repeat: no-repeat;
-		background-size: 600px 540px;
-		background-position: right 15px center;
+		// background-image: url('/src/assets/images/about/about-advantages.webp');
+		// background-repeat: no-repeat;
+		// background-size: 600px 540px;
+		// background-position: right 15px center;
+
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			background-image: url('/src/assets/images/about/about-advantages.webp');
+			background-repeat: no-repeat;
+			background-size: clamp(31.25rem, 1.442rem + 48.077vw, 37.5rem) clamp(28.125rem, 1.298rem + 43.269vw, 33.75rem);
+			background-position: right 15px center;
+		}
+
+		@include rmax($lg) {
+			justify-content: center;
+			text-align: center;
+
+			&:before {
+				background-position: center;
+				background-size: cover;
+				opacity: 0.6;
+			}
+		}
+
+		@include rmax($md) {
+			padding-block: 100px;
+		}
+
+		@include rmax($sm) {
+			padding-block: 80px;
+		}
+
+		@include rmax($xs) {
+			padding-block: 60px;
+		}
 	}
 
 	&__list {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 16px 90px;
+		grid-template-columns: auto auto;
+		gap: clamp(0.75rem, 0.659rem + 0.455vw, 1rem) clamp(1.875rem, -0.625rem + 8.333vw, 5.625rem); //16px to 12px && 90px to 30px
+
+		@include rmax($xs) {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	&__item {
@@ -24,6 +67,10 @@
 		gap: 12px;
 		font-weight: 300;
 		line-height: 1.56;
+
+		@include rmax($xs) {
+			justify-content: center;
+		}
 
 		&:before {
 			content: '';
@@ -41,6 +88,10 @@
 	}
 
 	.title {
-		margin-bottom: 50px;
+		@include rmax($lg) {
+			&:before {
+				margin-inline: auto;
+			}
+		}
 	}
 }
