@@ -1,14 +1,40 @@
+@use '../../../../styles/mixins' as*;
+
 .request-bike {
 	padding-block: 100px 120px;
 	background-image: url('/src/assets/images/services/black-bicycle.webp');
 	background-repeat: no-repeat;
 	background-size: auto 660px;
-	background-position: right center;
+	background-position: right 15px center;
+
+	@include rmax($lg) {
+		background-size: contain;
+	}
+
+	@include rmax($md) {
+		padding-block: 100px;
+	}
+
+	@include rmax($sm) {
+		padding-block: 80px;
+		background-image: none;
+	}
+
+	@include rmax($xs) {
+		padding-block: 60px;
+	}
+
+	&__inner {
+		@include rmax($lg) {
+			display: flex;
+			justify-content: center;
+		}
+	}
 
 	.form-wrapper {
 		display: inline-block;
-		padding: 50px 40px;
-		background-color: var(--c-lightblue);
+		padding: clamp(1.875rem, 0.446rem + 7.143vw, 3.125rem) clamp(1.25rem, -0.179rem + 7.143vw, 2.5rem); //50px to 30px & 40px to 20px
+		background-color: rgba(var(--c-lightblue), 0.9);
 	}
 
 	&__form {
