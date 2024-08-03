@@ -32,4 +32,18 @@ body {
 	grid-template-columns: 100%;
 	grid-template-rows: 1fr auto;
 	min-height: 100svh;
+
+	padding-top: 134px;
+
+	@include rmax($xl) {
+		padding-top: 131px;
+	}
+
+	@include rmax($md) {
+		padding-top: 94px;
+	}
+}
+
+.home-page>.wrapper {
+	padding-top: 0;
 }

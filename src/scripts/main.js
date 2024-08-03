@@ -1,4 +1,17 @@
+/* header dynamic links*/
+
+const navMenu = document.getElementById('menu');
+const links = navMenu.getElementsByClassName('menu__link');
+
+for (let i = 0; i < links.length; i++) {
+	if (links[i].href === window.location.href) {
+		links[i].classList.add('active');
+		break;
+	}
+}
+
 /* fixed header */
+
 const headerEl = document.querySelector('.header');
 
 window.addEventListener('scroll', () => {
