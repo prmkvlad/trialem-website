@@ -5,7 +5,7 @@ import { defineConfig } from 'vite'
 import { copyFileSync } from 'fs';
 
 export default {
-	base: '/docs/',
+	base: './',
 	plugins: [
 		vituum(),
 		postcss(),
@@ -31,6 +31,15 @@ export default {
 				copyFileSync('src/android-chrome-192x192.png', 'docs/android-chrome-192x192.png');
 				copyFileSync('src/android-chrome-512x512.png', 'docs/android-chrome-512x512.png');
 			},
+		},
+		{
+			name: 'adjust-html-paths',
+			enforce: 'post',
+			transformIndexHtml(html) {
+				// Объединяем замены в одно регулярное выражение
+				return html.replace(/(href|src)="\/docs\/([^"]*)"/g, '$1="./$2"')
+					.replace(/(href|src)="\/([^"]*)"/g, '$1="./$2"');
+			}
 		},
 	],
 
@@ -74,7 +83,7 @@ export default {
 				preserveModuleDirectories: true,
 			}
 		},
-		base: '/docs/',
+		base: './',
 	},
 };
 
