@@ -1,20 +1,37 @@
 @use '../../../../styles/mixins' as*;
 
 .address {
-	padding-block: 40px;
-	margin-bottom: 20px;
+	padding-block: 60px 100px;
+
+	@include rmax($sm) {
+		padding-block: 60px 80px;
+	}
+
+	@include rmax($xs) {
+		padding-block: 40px 60px;
+	}
 
 	.address-list {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 20px;
+		display: flex;
+		justify-content: center;
+		gap: clamp(1.563rem, 0.893rem + 3.348vw, 2.5rem); //40px to 25px
+		flex-wrap: wrap;
+
+		@include rmax($md) {
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 
 	.address-card {
 		position: relative;
-		padding-left: 130px;
-		min-height: 100px;
-		font-size: 20px;
+		padding-left: clamp(6.875rem, 4.653rem + 4.63vw, 8.125rem); //130px to 110px
+		min-height: clamp(5rem, 2.778rem + 4.63vw, 6.25rem); //100px to 80px
+		font-size: clamp(1rem, 0.556rem + 0.926vw, 1.25rem); //20px to 16px
+
+		@include rmax($md) {
+			max-width: 275px;
+		}
 
 		&:before,
 		&:after {
@@ -28,15 +45,15 @@
 		&:before {
 			background-color: var(--c-pink);
 			border-radius: 50%;
-			width: 100px;
-			height: 100px;
+			width: clamp(5rem, 2.778rem + 4.63vw, 6.25rem); //100px to 80px
+			height: clamp(5rem, 2.778rem + 4.63vw, 6.25rem); //100px to 80px
 		}
 
 		&:after {
-			width: 50px;
-			height: 50px;
-			left: 25px;
-			top: 25px;
+			width: clamp(2.5rem, 1.389rem + 2.315vw, 3.125rem); //50px to 40px
+			height: clamp(2.5rem, 1.389rem + 2.315vw, 3.125rem); //50px to 40px
+			left: clamp(1.25rem, 0.694rem + 1.157vw, 1.563rem); //25px to 20px
+			top: clamp(1.25rem, 0.694rem + 1.157vw, 1.563rem); //25px to 20px
 			@include mask-contain;
 			background-color: var(--c-white);
 		}
@@ -66,6 +83,7 @@
 
 		&__text,
 		&__link {
+			display: block;
 			font-weight: 300;
 			line-height: 1.35;
 		}
