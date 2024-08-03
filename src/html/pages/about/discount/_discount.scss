@@ -9,6 +9,10 @@
 		background-position: left;
 	}
 
+	@include rmax($xs) {
+		padding-block: 60px;
+	}
+
 	&__inner {
 		@include rmax($md) {
 			display: flex;
