@@ -5,15 +5,25 @@
 	background-image: url('/src/assets/images/about/discount-bg.webp');
 	@include bg-cover;
 
-	&__inner {}
+	@include rmax($lg) {
+		background-position: left;
+	}
+
+	&__inner {
+		@include rmax($md) {
+			display: flex;
+			justify-content: center;
+		}
+	}
 
 	.content {
-		max-width: 400px;
-		width: 100%;
-		margin-left: auto;
+
+		@include rmin($md-above) {
+			max-width: 400px;
+			width: 100%;
+			margin-left: auto;
+		}
 	}
 
-	.title {
-		margin-bottom: 50px;
-	}
+	.title {}
 }
