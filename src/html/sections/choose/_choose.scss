@@ -53,18 +53,18 @@
 			align-self: center;
 		}
 	}
-}
 
-.bikes-list {
-	display: flex;
-	justify-content: center;
-	gap: clamp(0.938rem, -0.174rem + 2.315vw, 1.563rem); //25px to 15px
+	.bikes-list {
+		display: flex;
+		justify-content: center;
+		gap: clamp(0.938rem, -0.174rem + 2.315vw, 1.563rem); //25px to 15px
 
-	@include rmax($xl) {
-		margin-bottom: 30px;
-	}
+		@include rmax($xl) {
+			margin-bottom: 30px;
+		}
 
-	@include rmax($md) {
-		flex-wrap: wrap;
+		@include rmax($md) {
+			flex-wrap: wrap;
+		}
 	}
 }

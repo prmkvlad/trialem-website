@@ -2,7 +2,7 @@
 
 .bike-card {
 	position: relative;
-	max-width: 280px;
+	min-width: 215px;
 	width: 100%;
 	padding: 16px;
 	box-shadow: 0 0 32px 8px rgba(0, 0, 0, 0.08);
@@ -21,6 +21,7 @@
 
 	&__img {
 		margin-bottom: 24px;
+		margin-inline: auto;
 		transition: transform 0.3s ease-in-out 0s;
 
 	}

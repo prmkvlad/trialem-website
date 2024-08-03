@@ -3,8 +3,20 @@
 .bikes {
 	padding-block: 70px 110px;
 
+	@include rmax($md) {
+		padding-bottom: 70px;
+	}
+
+	@include rmax($sm) {
+		padding-block: 60px 50px;
+	}
+
+	@include rmax($xs) {
+		padding-block: 40px 30px;
+	}
+
 	&__inner {
-		max-width: 1260px;
+		padding: 0;
 	}
 
 	.tabs-nav {
@@ -14,6 +26,15 @@
 		gap: 12px;
 		margin-bottom: 12px;
 		margin-left: 30px;
+
+		@include rmax($lg) {
+			padding-inline: 15px;
+			margin-left: 0;
+		}
+
+		@include rmax($sm) {
+			justify-content: center;
+		}
 
 		&__link {
 			display: flex;
@@ -65,14 +86,29 @@
 	.bikes-list {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: 30px 25px;
-		max-width: 1170px;
+		gap: clamp(0.938rem, 0.313rem + 1.667vw, 1.563rem); //25px to 15px
+
+		@include rmax($lg) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@include rmax($md) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include rmax($xs) {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	.tabs {
 
 		&__wrapper {
 			padding: 30px;
+
+			@include rmax($lg) {
+				padding: 30px 15px;
+			}
 		}
 
 		&-content {
