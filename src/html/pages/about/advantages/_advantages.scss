@@ -4,13 +4,9 @@
 
 	&__inner {
 		position: relative;
-		padding-block: 105px;
+		padding-block: 100px;
 		display: flex;
 		justify-content: flex-start;
-		// background-image: url('/src/assets/images/about/about-advantages.webp');
-		// background-repeat: no-repeat;
-		// background-size: 600px 540px;
-		// background-position: right 15px center;
 
 		&:before {
 			content: '';
@@ -36,10 +32,6 @@
 				background-size: cover;
 				opacity: 0.6;
 			}
-		}
-
-		@include rmax($md) {
-			padding-block: 100px;
 		}
 
 		@include rmax($sm) {
@@ -84,7 +76,10 @@
 
 	.content {
 		max-width: 530px;
-		min-height: 540px;
+
+		@include rmin($xl-above) {
+			min-height: 540px;
+		}
 	}
 
 	.title {
