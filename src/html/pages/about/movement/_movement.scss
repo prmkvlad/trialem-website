@@ -18,13 +18,12 @@
 		gap: 100px;
 
 		@include rmax($xl) {
-			gap: 16px;
+			gap: 40px;
 		}
 
 		@include rmax($md) {
 			flex-wrap: wrap;
 			justify-content: center;
-			gap: 35px;
 		}
 	}
 

@@ -38,12 +38,12 @@
 
 		@include rmax($xl) {
 			align-items: center;
+			gap: 40px;
 		}
 
 		@include rmax($md) {
 			justify-content: center;
 			flex-wrap: wrap-reverse;
-			gap: 40px;
 		}
 	}
 
@@ -58,7 +58,10 @@
 	}
 
 	.form-wrapper {
-		padding-left: clamp(0rem, -5.556rem + 11.574vw, 3.125rem);
 		min-width: 260px;
+
+		@include rmin($xl-above) {
+			padding-left: 50px;
+		}
 	}
 }
