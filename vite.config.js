@@ -2,7 +2,7 @@ import vituum from 'vituum';
 import posthtml from '@vituum/vite-plugin-posthtml';
 import postcss from '@vituum/vite-plugin-postcss';
 import { defineConfig } from 'vite'
-import { copyFileSync, readdirSync, readFileSync, writeFileSync } from 'fs';
+import { copyFileSync, readdirSync, readFileSync, writeFileSync, statSync } from 'fs';
 
 export default {
 	base: '/docs/',
@@ -33,23 +33,31 @@ export default {
 			},
 		},
 		{
-			name: 'post-build-html-processing',
+			name: 'handle-html-and-css-paths',
 			closeBundle() {
 				const outputDir = 'docs';
-				const files = readdirSync(outputDir);
 
-				files.forEach(file => {
-					const filePath = `${outputDir}/${file}`;
-					if (file.endsWith('.html')) {
-						let content = readFileSync(filePath, 'utf-8');
-						// Заменяем пути /docs/ на относительные ./ и убираем двойные слэши
-						content = content.replace(/(href|src)=["']\/docs\/([^"']*)["']/g, '$1="./$2"')
-							.replace(/(href|src)=["']\/([^"']*)["']/g, '$1="./$2"');
-						writeFileSync(filePath, content);
-					}
-				});
+				const processFiles = (dir) => {
+					const files = readdirSync(dir);
+					files.forEach(file => {
+						const filePath = `${dir}/${file}`;
+						if (statSync(filePath).isDirectory()) {
+							processFiles(filePath);
+						} else if (file.endsWith('.html') || file.endsWith('.css')) {
+							let content = readFileSync(filePath, 'utf-8');
+							if (file.endsWith('.html')) {
+								content = content.replace(/(href|src)=["']\/docs\/([^"']*)["']/g, '$1="./$2"')
+									.replace(/(href|src)=["']\/([^"']*)["']/g, '$1="./$2"');
+							} else if (file.endsWith('.css')) {
+								content = content.replace(/\/docs\//g, '../');
+							}
+							writeFileSync(filePath, content);
+						}
+					});
+				};
+				processFiles(outputDir);
 			}
-		}
+		},
 	],
 
 	build: {
@@ -59,34 +67,22 @@ export default {
 			output: {
 				assetFileNames: (asset) => {
 					const filePath = asset.name.split('/');
-					const fileName = filePath.pop();
-					const nestedPath = filePath.join('/');
-					const outputPath = `${nestedPath ? nestedPath + '/' : ''
-						}[name][extname]`;
+					const nestedPath = filePath.slice(0, -1).join('/');
+					const outputPath = `${nestedPath ? nestedPath + '/' : ''}[name][extname]`;
 
-					if (asset.name.includes('favicon') || asset.name.includes('apple-touch-icon') || asset.name.includes('android-chrome')) {
-						return `${outputPath}`;
+					if (/favicon|apple-touch-icon|android-chrome/.test(asset.name)) {
+						return outputPath;
 					}
 
-					console.log(`${asset} - ${asset.name} - ${asset.type}`);
-					console.dir(`${asset}`);
-
-					if (asset.type === 'asset') {
-						switch (asset.name.split('.').pop()) {
-							case 'css':
-								return `css/${outputPath}`;
-							case 'png':
-							case 'jpg':
-							case 'webp':
-							case 'svg':
-								return `images/${outputPath}`;
-							case 'woff2':
-								return `fonts/${outputPath}`;
-							case 'webmanifest':
-								return `${outputPath}`;
-							default:
-								return `other/${outputPath}`;
-						}
+					switch (asset.name.split('.').pop()) {
+						case 'css': return `css/${outputPath}`;
+						case 'png':
+						case 'jpg':
+						case 'webp':
+						case 'svg': return `images/${outputPath}`;
+						case 'woff2': return `fonts/${outputPath}`;
+						case 'webmanifest': return outputPath;
+						default: return `other/${outputPath}`;
 					}
 				},
 				preserveModuleDirectories: true,
@@ -94,4 +90,3 @@ export default {
 		},
 	},
 };
-
