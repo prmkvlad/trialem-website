@@ -2,10 +2,10 @@ import vituum from 'vituum';
 import posthtml from '@vituum/vite-plugin-posthtml';
 import postcss from '@vituum/vite-plugin-postcss';
 import { defineConfig } from 'vite'
-import { copyFileSync } from 'fs';
+import { copyFileSync, readdirSync, readFileSync, writeFileSync } from 'fs';
 
 export default {
-	base: './',
+	base: '/docs/',
 	plugins: [
 		vituum(),
 		postcss(),
@@ -33,19 +33,28 @@ export default {
 			},
 		},
 		{
-			name: 'adjust-html-paths',
-			enforce: 'post',
-			transformIndexHtml(html) {
-				// Объединяем замены в одно регулярное выражение
-				return html.replace(/(href|src)="\/docs\/([^"]*)"/g, '$1="./$2"')
-					.replace(/(href|src)="\/([^"]*)"/g, '$1="./$2"');
+			name: 'post-build-html-processing',
+			closeBundle() {
+				const outputDir = 'docs';
+				const files = readdirSync(outputDir);
+
+				files.forEach(file => {
+					const filePath = `${outputDir}/${file}`;
+					if (file.endsWith('.html')) {
+						let content = readFileSync(filePath, 'utf-8');
+						// Заменяем пути /docs/ на относительные ./ и убираем двойные слэши
+						content = content.replace(/(href|src)=["']\/docs\/([^"']*)["']/g, '$1="./$2"')
+							.replace(/(href|src)=["']\/([^"']*)["']/g, '$1="./$2"');
+						writeFileSync(filePath, content);
+					}
+				});
 			}
-		},
+		}
 	],
 
 	build: {
 		root: './src',
-		outDir: './docs',
+		outDir: './docs/',
 		rollupOptions: {
 			output: {
 				assetFileNames: (asset) => {
@@ -83,7 +92,6 @@ export default {
 				preserveModuleDirectories: true,
 			}
 		},
-		base: './',
 	},
 };
 
